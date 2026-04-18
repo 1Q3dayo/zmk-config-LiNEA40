@@ -42,6 +42,14 @@
             codes = <INPUT_REL_WHEEL>;
             track-remainders;
         };
+
+        zip_xy_zero: zip_xy_zero {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_X INPUT_REL_Y>;
+            track-remainders;
+        };
     };
 };
 
@@ -55,10 +63,7 @@
 &trackball_listener {
     scroller {
         layers = <SCROLL>;
-        input-processors =
-            <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,
-            <&zip_xy_to_scroll_mapper>;
+        input-processors = <&zip_xy_zero 0 1>;
     };
 };
 
