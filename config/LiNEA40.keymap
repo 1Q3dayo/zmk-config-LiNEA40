@@ -42,14 +42,6 @@
             codes = <INPUT_REL_WHEEL>;
             track-remainders;
         };
-
-        zip_xy_zero: zip_xy_zero {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <2>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_X INPUT_REL_Y>;
-            track-remainders;
-        };
     };
 };
 
@@ -57,13 +49,6 @@
     speed_up {
         layers = <FUNCTION>;
         input-processors = <&zip_wheel_scaler 3 1>; //スクロールを3倍速にする
-    };
-};
-
-&trackball_listener {
-    scroller {
-        layers = <SCROLL>;
-        input-processors = <&zip_xy_zero 0 1>;
     };
 };
 
